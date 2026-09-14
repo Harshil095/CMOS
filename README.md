@@ -1,12 +1,10 @@
-# CMOS Digital Circuit Design & VLSI Layout
+# CMOS Circuit Design & VLSI Layout
 
 A transistor-level CMOS digital circuit design project using **TSMC 180 nm CMOS models**, **LTspice**, and the **Electric VLSI Design System**.
 
 The project covers MOSFET characterization, CMOS logic-gate design and simulation, transistor sizing, physical layout, DRC, RC extraction, and post-layout timing analysis.
 
 ## Overview
-
-This project was developed as part of VLSI design coursework to study CMOS circuits from the transistor level through physical layout.
 
 The main workflow is:
 
@@ -20,56 +18,15 @@ The main workflow is:
 - 2-input CMOS NOR
 - 3-input CMOS NAND
 - 3-input CMOS NOR
-- CMOS half-adder
-- CMOS inverter physical layout
-- Capacitive-load analysis
-- RC/parasitic extraction and timing analysis
-
-## Technology
-
-- **Technology:** TSMC 180 nm CMOS
-- **Minimum channel length used:** 0.18 µm
-- **Supply voltage:** 3 V for the main inverter characterization
-- **SPICE model:** `tsmc018.lib`
-
-The repository contains the TSMC 180 nm model/library files used by the LTspice simulations.
+- Schematic & Layout
 
 ## Tools Used
 
 | Tool | Purpose |
 |---|---|
 | **LTspice** | Transistor-level CMOS simulation, DC sweeps and transient analysis |
-| **Electric VLSI Design System** | CMOS schematic and physical layout design |
-| **TSMC 180 nm SPICE model** | NMOS/PMOS device modeling |
-| **SPICE netlists / `.asc` files** | Simulation setups and circuit definitions |
+| **Electric VLSI Design Tool* | CMOS schematic and physical layout design |
 
-## Project Structure
-
-```text
-CMOS/
-├── Figs/                    # Figures and project visuals
-├── Id vs Vds/               # MOSFET I_D-V_DS analysis material
-├── Inverter/                # CMOS inverter design/layout material
-├── TSMC_180mn/              # TSMC 180 nm related project files
-├── nand-gate/               # NAND gate design material
-├── nor-gate/                # NOR gate design material
-│
-├── CMOS.jelib               # Electric VLSI project/library file
-├── TSMC_180mn.zip           # Archived TSMC 180 nm project files
-├── tsmc018.lib              # TSMC 180 nm SPICE model
-│
-├── CMOS_inverter.asc        # CMOS inverter LTspice schematic
-├── NAND.asc                 # CMOS NAND LTspice schematic
-├── NOR.asc                  # CMOS NOR LTspice schematic
-├── 3ip_NAND.asc             # 3-input NAND LTspice schematic
-├── q3.asc                   # Additional circuit/simulation setup
-├── Draft1.asc               # Intermediate LTspice design
-├── Draft2.asc               # Intermediate LTspice design
-│
-├── cmos_sizing.pdf          # CMOS transistor-sizing calculations
-├── Report.pdf               # Detailed project report
-└── README.md
-```
 
 ## 1. MOSFET Characterization
 
@@ -134,11 +91,6 @@ The transistor sizing was adjusted to account for the higher effective resistanc
 
 3-input versions were also analyzed to study the effect of additional series/parallel devices on switching behavior and timing.
 
-## 4. CMOS Half-Adder
-
-A CMOS half-adder was designed at the transistor level using CMOS logic structures.
-
-The design extends the individual CMOS logic-gate concepts toward a larger combinational digital circuit.
 
 ## 5. Physical VLSI Layout
 
@@ -166,17 +118,7 @@ The Electric VLSI project/library is provided as:
 CMOS.jelib
 ```
 
-## 6. DRC and RC Extraction
-
-The CMOS inverter layout was checked using Electric VLSI's design-rule checking flow.
-
-After layout verification, RC extraction was used to capture parasitic effects introduced by the physical implementation.
-
-The extracted circuit was then analyzed to compare switching performance against the ideal/pre-layout behavior.
-
-## 7. Results
-
-For the CMOS inverter physical-layout analysis, the report gives the following results:
+## 6. Results
 
 | Parameter | Without Capacitor | With Capacitor |
 |---|---:|---:|
@@ -189,70 +131,5 @@ For the CMOS inverter physical-layout analysis, the report gives the following r
 
 The extracted parasitic capacitance increases the rise/fall times and propagation delay, resulting in a reduction in the maximum operating frequency.
 
-## Key Concepts Demonstrated
-
-- CMOS inverter operation
-- NMOS/PMOS device characteristics
-- Pull-up and pull-down networks
-- CMOS NAND/NOR topology
-- Transistor sizing
-- Rise/fall time
-- Propagation delay
-- Capacitive loading
-- SPICE simulation
-- CMOS physical layout
-- Design Rule Checking (DRC)
-- RC/parasitic extraction
-- Post-layout timing analysis
-- 180 nm CMOS technology
-
-## Files of Interest
-
-### LTspice
-
-- `CMOS_inverter.asc` — CMOS inverter simulation
-- `NAND.asc` — NAND gate simulation
-- `NOR.asc` — NOR gate simulation
-- `3ip_NAND.asc` — 3-input NAND simulation
-- `tsmc018.lib` — TSMC 180 nm transistor model
-
-### Electric VLSI
-
-- `CMOS.jelib` — Electric VLSI project/library containing the CMOS designs and layout work
-
-### Documentation
-
-- `Report.pdf` — complete project report
-- `cmos_sizing.pdf` — transistor-sizing calculations
-
-## How to Explore the Project
-
-### LTspice
-
-1. Install LTspice.
-2. Keep `tsmc018.lib` available in the same project directory.
-3. Open the relevant `.asc` schematic.
-4. Run the DC or transient simulation.
-5. Inspect the output waveform and timing measurements.
-
-The LTspice schematics contain `.include tsmc018.lib` statements so that the TSMC 180 nm device models are used during simulation.
-
-### Electric VLSI
-
-Open `CMOS.jelib` using the Electric VLSI Design System to inspect the available schematic/layout cells.
-
-The physical-layout portion of the project is centered around the CMOS inverter, including DRC and RC-extraction analysis.
-
-## Repository Notes
-
-Some `.asc` files such as `Draft1.asc` and `Draft2.asc` are intermediate simulation/design files retained from the development process.
-
-The detailed methodology, circuit diagrams, simulations, layout screenshots, DRC results, RC extraction and timing results are documented in `Report.pdf`.
-
-## Author
-
 **Harshil Rathan Y**  
-B.Tech Electrical Engineering  
-Indian Institute of Technology Hyderabad
 
-GitHub: [Harshil095](https://github.com/Harshil095)
